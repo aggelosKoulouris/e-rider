@@ -1,9 +1,23 @@
 <script>
-	export let appName
+	import { installRouter } from 'pwa-helpers/router.js';
+	import {view, onRouteChange} from './router.js'
+
+	export let appName;
+
+	installRouter(onRouteChange)
 </script>
 
+<header>
+	<nav>
+		<a href="/">Home</a>
+		<a href="/settings">Settings</a>
+		<a href="/shift-calculator">Shift Calculator</a>
+	</nav>
+</header>
+
 <main>
-<h1>{appName}</h1>
+	<h1>{appName}</h1>
+	<svelte:component this={$view} />
 </main>
 
 <style>
